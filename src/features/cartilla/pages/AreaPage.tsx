@@ -3,7 +3,7 @@ import { BookOpen, Upload, FileText, Trash2 } from "lucide-react";
 import { AREA_MAP } from "@/data/areas";
 import { Button } from "@/components/ui/button";
 import { usePdfStore } from "@/features/cartilla/store/pdfStore";
-import type { AreaSlug, PdfDocument } from "@/features/cartilla/types";
+import type { PdfDocument } from "@/features/cartilla/types";
 
 export function AreaPage() {
   const { areaSlug } = useParams<{ areaSlug: string }>();
@@ -25,7 +25,7 @@ export function AreaPage() {
       return;
     }
 
-    const doc = addPdf(file, areaSlug as AreaSlug);
+    const doc = addPdf(file, areaSlug);
     navigate(`/${areaSlug}/ver/${doc.id}`);
   };
 

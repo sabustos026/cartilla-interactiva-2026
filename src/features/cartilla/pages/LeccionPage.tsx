@@ -44,8 +44,6 @@ export function LeccionPage() {
 
   if (!navArea) return <Navigate to="/" replace />;
 
-  const titulo = leccion?.titulo.map(s => s.text).join("").trim() || "Lección";
-
   const hasQuiz = leccion?.actividades.some(a => a.tipo === "quiz") ?? false;
   const hasReflexion = leccion?.actividades.some(a => a.tipo === "reflexion") ?? false;
   const otherActividades = leccion?.actividades.filter(a => a.tipo !== "quiz" && a.tipo !== "reflexion") ?? [];

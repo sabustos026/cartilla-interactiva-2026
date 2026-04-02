@@ -22,7 +22,7 @@ interface Props {
   customQuestions?: Array<{ question: string; options: string[]; correct: number }>;
 }
 
-export function QuizPlaceholder({ areaColor = "bg-violet-500", areaGradient = "from-violet-500 to-indigo-600", customQuestions }: Props) {
+export function QuizPlaceholder({ areaGradient = "from-violet-500 to-indigo-600", customQuestions }: Props) {
   const questions = customQuestions || SAMPLE_QUESTIONS;
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);

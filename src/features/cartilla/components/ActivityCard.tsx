@@ -2,7 +2,7 @@ import { CheckSquare, Lightbulb, PenLine, Search, BookOpen, ClipboardCheck, Star
 import type { Actividad } from "@/features/cartilla/types";
 import { ParagraphList, RichTextSpan } from "./ContentRenderer";
 
-const TIPO_CONFIG = {
+const TIPO_CONFIG: Record<string, any> = {
   tarea: { icon: CheckSquare, color: "from-blue-500 to-indigo-600", label: "Tarea", bg: "bg-blue-50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800/50" },
   reflexion: { icon: Lightbulb, color: "from-amber-500 to-yellow-600", label: "Reflexión", bg: "bg-amber-50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800/50" },
   quiz: { icon: ClipboardCheck, color: "from-violet-500 to-purple-600", label: "Quiz", bg: "bg-violet-50 dark:bg-violet-950/20 border-violet-200 dark:border-violet-800/50" },
@@ -21,7 +21,6 @@ interface Props {
 export function ActivityCard({ actividad, index }: Props) {
   const config = TIPO_CONFIG[actividad.tipo] || TIPO_CONFIG.general;
   const Icon = config.icon;
-  const titleText = actividad.titulo.map(s => s.text).join("");
   const descText = actividad.descripcion.map(s => s.text).join("").trim();
 
   return (
